@@ -33,9 +33,9 @@
 	  <div class="form-group row">
     <label class="col-sm-2">Geschlecht</label>
     <div class="col-sm-10">
-      <div class="radio">
+      <div class="radio" >
         <label class="radio-inline">
-          <input type="radio" name="rSex" id="gridRadios1" value="male">
+          <input type="radio" name="rSex" id="gridRadios1" value="male" required>
           männlich
         </label>
       </div>
@@ -52,7 +52,7 @@
     <div class="col-sm-10">
       <div class="radio">
         <label>
-          <input type="radio" name="rAge" id="rAge1" value="tillEighteen">
+          <input type="radio" name="rAge" id="rAge1" value="tillEighteen" required>
           10-18
         </label>
       </div>
@@ -77,13 +77,25 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="weight">Gewicht:</label>
+      <div class="col-sm-10">
+      <input type="number" class="form-control" id="weight" required>
+      </div>
+    </div>
+
   </div>
   <div class="form-group row">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-secondary">Berechnen</button>
+      <button type="submit" class="btn btn-secondary" onclick="calcRMR(10, 2)">Berechnen</button>
     </div>
   </div>
 </form>
+<p>
+  <h3>RMR: </h3>
+</p>
+
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

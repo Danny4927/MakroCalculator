@@ -42,8 +42,10 @@
       }
     }
     //alert(rmr);
-    document.rmrcalculation.rmrresult.value=rmr;
-    stickyForm();
+    //document.rmrcalculation.rmrresult.innerHTML = rmr;
+    document.getElementById('rmrresult').innerHTML = rmr + " Kcal";
+
+    saveInLocalStorage();
     return rmr;
 
   };
@@ -56,15 +58,15 @@
     return rmr;
   };
 
-  //sticky form
-  var stickyForm = function() {
+  //persist in localStorage
+  var saveInLocalStorage = function() {
     var form = document.getElementsByName('rmrcalculation')[0];
     if (localStorage['weight'] !== undefined) {
       var displayArea = document.getElementById('weight');
       displayArea.textContent = localStorage['weight'];
     }
-    form.addEventListener('submit', function() {
-      var nameField = document.getElementsByName('weight')[0];
-      localStorage['weight'] = nameField.value;
-    }, false);
+//    form.addEventListener('submit', function() {
+//      var nameField = document.getElementsByName('weight')[0];
+//      localStorage['weight'] = nameField.value;
+//    }, false);
   };

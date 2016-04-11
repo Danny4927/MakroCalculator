@@ -45,7 +45,7 @@
     //document.rmrcalculation.rmrresult.innerHTML = rmr;
     document.getElementById('rmrresult').innerHTML = rmr + " Kcal";
 
-    saveInLocalStorage();
+    saveInLocalStorage(rmr);
     return rmr;
 
   };
@@ -59,12 +59,18 @@
   };
 
   //persist in localStorage
-  var saveInLocalStorage = function() {
-    var form = document.getElementsByName('rmrcalculation')[0];
-    if (localStorage['weight'] !== undefined) {
-      var displayArea = document.getElementById('weight');
-      displayArea.textContent = localStorage['weight'];
-    }
+  var saveInLocalStorage = function(rmr) {
+    //var form = document.getElementById("rmrcalculation");
+    //if (localStorage['weight'] !== undefined) {
+    //  var displayArea = document.getElementById("weight");
+    //  displayArea.textContent = localStorage['weight'];
+    //}
+    //var weight = document.getElementById("weight");
+    localStorage['rmr'] = rmr;
+    localStorage['rAgeGroupe'] = $("input[name=rAgeGroupe]:checked").val();
+    //document.getElementById("rAgeGroupe").value;
+    localStorage['rSex'] = document.getElementById("rSex").value;
+    localStorage['weight'] = document.getElementById("weight").value;
 //    form.addEventListener('submit', function() {
 //      var nameField = document.getElementsByName('weight')[0];
 //      localStorage['weight'] = nameField.value;

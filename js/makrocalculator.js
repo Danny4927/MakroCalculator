@@ -41,7 +41,9 @@
         rmr = calcRMRValues(10.5 , 596);
       }
     }
-    alert(rmr);
+    //alert(rmr);
+    document.rmrcalculation.rmrresult.value=rmr;
+    stickyForm();
     return rmr;
 
   };
@@ -52,4 +54,17 @@
     var produkt = faktor * weight.value;
     var rmr = produkt + summand;
     return rmr;
+  };
+
+  //sticky form
+  var stickyForm = function() {
+    var form = document.getElementsByName('rmrcalculation')[0];
+    if (localStorage['weight'] !== undefined) {
+      var displayArea = document.getElementById('weight');
+      displayArea.textContent = localStorage['weight'];
+    }
+    form.addEventListener('submit', function() {
+      var nameField = document.getElementsByName('weight')[0];
+      localStorage['weight'] = nameField.value;
+    }, false);
   };

@@ -52,7 +52,7 @@
              </p>
            </div>
 
-      <h2>Schritt 1: Ruheumsatz (RMR)</h2>
+      <h3>Schritt 1: Ruheumsatz (RMR)</h3>
 
       <form data-toggle="validator" id="rmrcalculation" method="POST">
 
@@ -115,7 +115,7 @@
                <button type="button" class="btn btn-primary" onclick="calcRMR()">Berechnen</button>
              </div>
            </div>
-           <h1>
+           <h2>
            <div class="form-group row">
              <label class="control-label col-sm-2" for="rmrresult" name="rmrresult1">RMR:</label>
              <div class="col-sm-2">
@@ -123,10 +123,83 @@
                <span class="label label-success" id="rmrresult"></span>
              </div>
            </div>
-         </h1>
+         </h2>
 
          </form>
-        <h2>Schritt 2: Aktivitätslevel (PAL)</h2>
+        <h3>Schritt 2: Aktivitätslevel (PAL)</h3>
+        <p>Welches Aktivitätslevel trifft auf Sie am meisten zu?</p>
+        <div class="form-group row">
+            <label class="col-sm-2" for="rSex">Aktivitätslevel</label>
+            <div class="col-sm-2" id="rPAL">
+                <div class="radio" >
+                    <label class="radio-inline">
+                        <input type="radio" name="rPAL" id="gridRadiosAkt1" value="1" required>
+                        Bettruhe
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="rPAL" id="gridRadiosAkt2" value="2">
+                        Sitzend
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="rPAL" id="gridRadiosAkt3" value="3">
+                        Primär sitzend
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="rPAL" id="gridRadiosAkt4" value="4">
+                        Zeitweise leicht aktiv
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="rPAL" id="gridRadiosAkt5" value="5">
+                        Leicht aktiv
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="rPAL" id="gridRadiosAkt6" value="6">
+                        Moderat aktiv
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="rPAL" id="gridRadiosAkt7" value="7">
+                        Überwiegend aktiv
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="rPAL" id="gridRadiosAkt8" value="8">
+                        Sehr aktiv
+                    </label>
+                </div>
+            </div>
+        </div>
+        <h2>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="rmrresult" name="rmrresult1">PAL:</label>
+                <div class="col-sm-2">
+                    <!--<input type="number"  class="form-control" name="rmrresult" id="rmrresult">-->
+                    <span class="label label-success" id="palresult"></span>
+                </div>
+            </div>
+        </h2>
+
+        <h1>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="rmrresult" name="rmrresult1">Täglicher Energiebedarf:</label>
+                <div class="col-sm-2">
+                    <!--<input type="number"  class="form-control" name="rmrresult" id="rmrresult">-->
+                    <span class="label label-success" id="result"></span>
+                </div>
+            </div>
+        </h1>
 
        <!-- container-fluid -->
        </div>

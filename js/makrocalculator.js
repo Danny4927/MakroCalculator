@@ -2,60 +2,136 @@
 
 
   var calcRMR = function () {
-    var elemMale = document.getElementById("gridRadios1");
-    var elemFemale = document.getElementById("gridRadios2");
-    var ageGroup1 = document.getElementById("rAge1");
-    var ageGroup2 = document.getElementById("rAge2");
-    var ageGroup3 = document.getElementById("rAge3");
-    var ageGroup4 = document.getElementById("rAge4");
+    var gender = $('input[name="rSex"]:checked').val();
+    var agegroupe = $('input[name="rAge"]:checked').val();
+    var actilevel = $('input[name="rPAL"]:checked').val();
+
     var rmr = "Angaben fehlen";
+    var pal = "Angaben fehlen";
 
     //male
-	  if (elemMale.checked){
-		  if (ageGroup1.checked){
-        rmr = calcRMRValues(17.5 , 651);
-      }
-      if (ageGroup2.checked){
-        rmr = calcRMRValues(15.3 , 679);
-      }
-      if (ageGroup3.checked){
-        rmr = calcRMRValues(11.6 , 879);
-      }
-      if (ageGroup4.checked){
-        rmr = calcRMRValues(13.5 , 487);
-      }
+    if (gender === "male"){
+        switch(agegroupe) {
+            case "tillEighteen":
+                rmr = calcRMRValues(17.5 , 651);
+                break;
+            case "tillThirty":
+                rmr = calcRMRValues(15.3 , 679);
+                break;
+            case "tillSixty":
+                rmr = calcRMRValues(11.6 , 879);
+                break;
+            case "biggerSixty":
+                rmr = calcRMRValues(13.5 , 487);
+                break;
+        }
     }
 
     //female
-    if (elemFemale.checked){
-      if (ageGroup1.checked){
-        rmr = calcRMRValues(12.2 , 749);
-      }
-      if (ageGroup2.checked){
-        rmr = calcRMRValues(14.7 , 496);
-      }
-      if (ageGroup3.checked){
-        rmr = calcRMRValues(8.7 , 829);
-      }
-      if (ageGroup4.checked){
-        rmr = calcRMRValues(10.5 , 596);
-      }
+    if (gender === "female"){
+        switch(agegroupe) {
+            case "tillEighteen":
+                rmr = calcRMRValues(12.2 , 749);
+                break;
+            case "tillThirty":
+                rmr = calcRMRValues(14.7 , 496);
+                break;
+            case "tillSixty":
+                rmr = calcRMRValues(8.7 , 829);
+                break;
+            case "biggerSixty":
+                rmr = calcRMRValues(10.5 , 596);
+                break;
+        }
     }
+
+    if (gender === "male"){
+          switch(actilevel) {
+              case "1":
+                  pal = 1.2;
+                  break;
+              case "2":
+                  pal = 1.3;
+                  break;
+              case "3":
+                  pal = 1.4;
+                  break;
+              case "4":
+                  pal = 1.5;
+                  break;
+              case "5":
+                  pal = 1.7;
+                  break;
+              case "6":
+                  pal = 1.8;
+                  break;
+              case "7":
+                  pal = 2.1;
+                  break;
+              case "8":
+                  pal = 2.3;
+                  break;
+          }
+      }
+      if (gender === "female"){
+          switch(actilevel) {
+              case "1":
+                  pal = 1.2;
+                  break;
+              case "2":
+                  pal = 1.3;
+                  break;
+              case "3":
+                  pal = 1.4;
+                  break;
+              case "4":
+                  pal = 1.5;
+                  break;
+              case "5":
+                  pal = 1.6;
+                  break;
+              case "6":
+                  pal = 1.7;
+                  break;
+              case "7":
+                  pal = 1.8;
+                  break;
+              case "8":
+                  pal = 2.0;
+                  break;
+          }
+      }
     //alert(rmr);
     //document.rmrcalculation.rmrresult.innerHTML = rmr;
-    document.getElementById('rmrresult').innerHTML = rmr;
+      if (rmr !== "Angaben fehlen") {
+          document.getElementById('rmrresult').innerHTML = rmr + " Kcal";
+      }else{
+          document.getElementById('rmrresult').innerHTML = rmr;
+      }
+
+    document.getElementById('palresult').innerHTML = pal;
+    var result = rmr.value * pal.value;
+    document.getElementById('result').innerHTML = result.value;
 
     saveInLocalStorage(rmr);
     return rmr;
 
   };
 
+  $( ".form-group" ).change(function() {
+      calcRMR();
+  });
+
   var calcRMRValues = function (faktor, summand) {
     //alert(summand);
     var weight = document.getElementById("weight");
     var produkt = faktor * weight.value;
     var rmr = produkt + summand;
-    return rmr + " Kcal";
+    if (weight.value === ""){
+        return "Angaben fehlen";
+    }else {
+        return rmr;
+    }
   };
 
   //persist in localStorage

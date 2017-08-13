@@ -8,8 +8,9 @@ Hostet on github-pages: https://danny4927.github.io/MakroCalculator/
 ## Currently working:
 
 - calculate the RMR in kcal
+- calculate PAL
 
 ## TODO:
-- calculate PAL
+
 - Multiply RMR by PAL
 - calculate macro nutrition facts

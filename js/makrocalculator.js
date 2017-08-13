@@ -43,7 +43,7 @@
     }
     //alert(rmr);
     //document.rmrcalculation.rmrresult.innerHTML = rmr;
-    document.getElementById('rmrresult').innerHTML = rmr + " Kcal";
+    document.getElementById('rmrresult').innerHTML = rmr;
 
     saveInLocalStorage(rmr);
     return rmr;
@@ -55,7 +55,7 @@
     var weight = document.getElementById("weight");
     var produkt = faktor * weight.value;
     var rmr = produkt + summand;
-    return rmr;
+    return rmr + " Kcal";
   };
 
   //persist in localStorage

@@ -9,8 +9,8 @@ Hostet on github-pages: https://danny4927.github.io/MakroCalculator/
 
 - calculate the RMR in kcal
 - calculate PAL
+- calculate Daily Calorie Needs
 
 ## TODO:
 
-- Multiply RMR by PAL
 - calculate macro nutrition facts

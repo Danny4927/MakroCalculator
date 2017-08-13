@@ -8,6 +8,7 @@
 
     var rmr = "Angaben fehlen";
     var pal = "Angaben fehlen";
+    var result = "Angaben fehlen";
 
     //male
     if (gender === "male"){
@@ -104,14 +105,16 @@
     //alert(rmr);
     //document.rmrcalculation.rmrresult.innerHTML = rmr;
       if (rmr !== "Angaben fehlen") {
-          document.getElementById('rmrresult').innerHTML = rmr + " Kcal";
+          document.getElementById('rmrresult').innerHTML = rmr.toFixed(2) + " Kcal";
       }else{
           document.getElementById('rmrresult').innerHTML = rmr;
       }
 
     document.getElementById('palresult').innerHTML = pal;
-    var result = rmr.value * pal.value;
-    document.getElementById('result').innerHTML = result.value;
+      if(rmr !== "Angaben fehlen" && pal !== "Angaben fehlen") {
+          result = rmr * pal;
+          document.getElementById('result').innerHTML = result.toFixed(2) + " Kcal";
+      }
 
     saveInLocalStorage(rmr);
     return rmr;

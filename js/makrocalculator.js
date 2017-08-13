@@ -1,4 +1,11 @@
 
+// no submit when "enter" key is pressed
+document.getElementById('weight').addEventListener('keypress', function(event) {
+    if (event.keyCode == 13) {
+        event.preventDefault();
+        calcRMR();
+    }
+});
 
 
   var calcRMR = function () {
